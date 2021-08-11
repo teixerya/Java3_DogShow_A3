@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>User Login</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/main.css}" href="../static/css/main.css"
+          rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/footer.css}" href="../static/css/footer.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{../js/footer.js}" src="../static/js/footer.js"></script>
+
+</head>
+<body>
+<h1> User Login </h1>
+
+
+
+
+Go to <a th:href="@{/admin}">Admin Login</a><br><br>
+Go to <a th:href="@{/member}">Member Login</a><br><br>
+Go to <a th:href="@{/guest}">Guest Login</a>
+<br><br>
+	Go to<a th:href="@{/register}"> Registration Page</a><br><br>
+	
+	Go to <a th:href="@{/addBreedLink}">Add Breed Page</a><br><br>
+
+<br><br>
+<div sec:authorize="isAuthenticated()">
+	User's Name: <span sec:authentication="name"></span>
+	<br>
+	Roles: <span sec:authentication="principal.authorities"></span>
+	<br>
+	<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Log out">
+	</form>
+
+</div>
+
+
+<br><br>
+<div th:if="${param.logout}">
+You have logged out
+</div>
+
+    <img th:src="@{/img/User2.jpg}" width="450" height="250"/>
+
+
+</body>
+</html>

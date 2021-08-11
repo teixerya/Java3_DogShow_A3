@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/main.css}" href="../static/css/main.css"
+          rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/footer.css}" href="../static/css/footer.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{../js/footer.js}" src="../static/js/footer.js"></script>
+
+</head>
+<body>
+
+<h1> Employee Page</h1>
+
+Go to <a th:href="@{/}">Root</a>
+
+<div sec:authorize="isAuthenticated()">
+	User's Name: <span sec:authentication="name"></span>
+	<br>
+	Roles: <span sec:authentication="principal.authorities"></span>
+	<br>
+	<form th:action="@{/logout}" method="post">
+	<br>
+	<input type="submit" value="Log out">
+	</form>
+
+</div>
+
+<br>
+<img th:src="@{/img/Morty2.png}" width="350" height="500"/>
+<br><br>
+
+
+
+
+
+
+
+</body>
+</html>

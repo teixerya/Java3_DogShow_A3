@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Contact</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/main.css}" href="../static/css/main.css"
+          rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/footer.css}" href="../static/css/footer.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{../js/footer.js}" src="../static/js/footer.js"></script>
+
+</head>
+<body>
+<h1>View Contact</h1>
+
+<table border ="1">
+
+<tr> 
+
+<th>Name</th>
+<th>Address</th>
+<th>phoneNumber</th>
+<th>email</th>
+<th>role</th>
+<th colspan = "2">Modify Contact</th>
+
+
+</tr>
+
+
+
+<tr th:each="contact: ${contacts}">
+<td th:text="${contact.name}"></td>
+<td th:text="${contact.address}"></td>
+<td th:text="${contact.phoneNumber}"></td>
+<td th:text="${contact.email}"></td>
+<td th:text="${contact.role}"></td>
+
+
+
+<td> <a th:href="@{/edit/{id} (id=${contact.id} ) }">Edit</a></td>
+<td> <a th:href="@{/delete/{id} (id=${contact.id} ) }">Delete</a></td>
+
+</tr>
+
+</table>
+
+<br>
+
+Go to <a th:href="@{/newContact}">Add New Contact</a><br>
+Go to <a th:href="@{/}">Root</a>
+
+    <img th:src="@{/img/summer.jpg}" width="450" height="250"/>
+
+
+</body>
+
+</html>

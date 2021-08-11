@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit Contact</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/main.css}" href="../static/css/main.css"
+          rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/footer.css}" href="../static/css/footer.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{../js/footer.js}" src="../static/js/footer.js"></script>
+
+</head>
+<body>
+<h1>Edit Contact</h1>
+<form th:action= "@{/editContact}" th:object= "${contact}" method="post">
+
+<input type= "hidden" th:field="*{id}">
+
+Name: <input type = "text" th:field="*{name}"> <br>
+Address: <input type = "text" th:field="*{address}"> <br>
+phoneNumber: <input type = "text" th:field="*{phoneNumber}"> <br>
+email:  <input type = "text" th:field="*{email}"> <br>
+
+Role: <select th:field="*{role}">
+	<option th:value= "ROLE_ADMIN">ROLE_ADMIN</option>
+	<option th:value= "ROLE_MEMBER">ROLE_MEMBER</option>
+	<option th:value= "ROLE_GUEST">ROLE_GUEST</option>
+	</select>
+
+<br>
+<input type="submit" value="Edit Contact"/>
+
+</form>
+
+<br>
+<br>
+
+Go to <a th:href="@{/viewContact}">View Contact</a>
+
+<img th:src="@{/img/summer.jpg}" width="450" height="250"/>
+
+</body>
+
+</html>
