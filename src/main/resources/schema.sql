@@ -35,13 +35,20 @@ alter table USER_ROLE
   
   
   
-create table BREED_TABLE(
-breedId   BIGINT NOT NULL Primary Key AUTO_INCREMENT,
+create table BREED_TABLE (
+breedId   INT NOT NULL Primary Key AUTO_INCREMENT,
 breedName VARCHAR(30)
 ) ;
-  
-  
-  
+
+CREATE TABLE DOG_REGISTRY_TABLE (
+
+      id INT NOT NULL Primary Key AUTO_INCREMENT,
+      dogName VARCHAR(25),
+      ownerName VARCHAR(50),
+      breed VARCHAR(25),
+      gender VARCHAR(30),
+      classSpecialty VARCHAR(30));
+
   
   
 CREATE TABLE contact_info (

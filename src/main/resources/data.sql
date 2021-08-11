@@ -71,11 +71,19 @@ insert into breed_table (breedName)
 values ('BREED_ ROTTWEILER');
 
 
+INSERT INTO DOG_REGISTRY_TABLE (dogName, ownerName, breed, gender, classSpecialty) VALUES
+('Rocket', 'Owner Bobby',  'Husky',  'Male','Underdog'),
 
 
-INSERT INTO contact_info (name, address, phoneNumber, email, role) VALUES 
+('Ruby', 'Owner Bobby',  'American Bully',  'Female','Champion');
+
+
+
+
+INSERT INTO contact_info (name, address, phoneNumber, email, role) VALUES
 ('Bonnie', '3115 turnstone Crescent',  '9056088510',  'bonny@gmail.com','ROLE_ADMIN'),
 ('Ruby', '30 Summer Drive', '4168248910', 'backup@email.com','ROLE_MEMBER'),
 
 ('Rhode', 'Fender Boulevard', '6474640122', 'Equador@gmail.com','ROLE_GUEST');
+
 

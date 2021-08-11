@@ -24,9 +24,7 @@ public class SecurityController {
 	@Lazy
 	private SecurityRepository secRepo;
 	
-	@Autowired
-	@Lazy
-	private BreedRepository breedRepo;
+
 	
 	@GetMapping("/login")
 	public String goLogin() {
@@ -38,43 +36,6 @@ public class SecurityController {
 		return "access-denied.html";
 	}
 
-//	@GetMapping("/addBreedLink")
-//	public String goToAddBreedPage() { 
-//		return "addBreedPage.html"; }
-
-//	@PostMapping("/addBreedToController")
-//	public String addBreedToDatabase(@RequestParam String breedName) {
-//		breedRepo.addBreedAtRepo(breedName);
-//		
-//		return "addBreed.html";
-//	}
-	
-	
-	
-	
-	@GetMapping("/addBreedLink")
-	public String goToAddBreedPage(Model model) {
-		model.addAttribute("breed", new Breed());
-		return "addBreedPage.html";
-	}
-
-	@PostMapping("/addBreedLink")
-	public String addBreedToDatabase(@ModelAttribute Breed breed, Model model) {
-
-		System.out.println("\nSecurity Controller @PostMapping addBreedToController breed is "+ breed+ "\n"); 
-		
-		breedRepo.addBreedAtRepo(breed);
-
-//		return "redirect:/addBreed";
-		return "addBreedPage.html";
-	}
-	
-	
-	
-	
-	
-	
-	
 
 	@GetMapping("/register")
 	public String goToRegistration() {

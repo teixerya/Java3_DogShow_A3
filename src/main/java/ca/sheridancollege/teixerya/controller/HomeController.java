@@ -54,8 +54,7 @@ public class HomeController {
 		
 		model.addAttribute("contacts", contacts);
 		return "/viewContact.html";
-			
-			
+
 	}
 	
 	@GetMapping("/admin") public String goToUserPage() { 

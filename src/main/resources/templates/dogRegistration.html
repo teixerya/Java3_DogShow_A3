@@ -16,29 +16,56 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 </head>
 <body>
 	<h2>Dog Registration Page</h2>
-	<form th:action="@{/dogRegister}" th:object="${dog}" method="post" >
-	
+	<form th:action="@{/addDogLink}" th:object="${dog}" method="post" >
+
+
+
+
 	<h2>Dog Name: </h2> <input type= "text" th:field="*{dogName}"><br>
 	<h2>Owner Name: </h2> <input type= "text" th:field="*{ownerName}"><br>
-	<select th:field= "*{breed}">
-<!-- 	<option value="breed">Choose Breed</option> -->
-	Breed<option th:each="b: ${breedList}" th:value="${b.breedId}" th:text="${b.breedName}">
-	</option>
-	</select>
-<br>
-	<select th:field="*{gender}">
-		<option th:value="male" th:text="Male"></option>
-		<option th:value="female" th:text="Female"></option>
-	</select>
 
-<!-- 		<p>
-            <label class="group_label">    Role</label>
-            <div>
-            <label><input type="checkbox"  name="role" value="admin"/>  Admin</label><br>
-            <label><input type="checkbox"  name="role2" value="member"/> Member</label><br>
-            <label><input type="checkbox"  name="role3" value="guest"/>  Guest</label> 
-			</div>
-        </p>   -->
+<!-- 	<select th:field= "*{breed}">
+	<option value="breed">Choose Breed</option>
+	Breed<br>
+	<option th:each="b: ${breedList}" th:value="${b.breedId}" th:text="${b.breedName}"></option>
+	</select> -->
+	
+	<h2>Breed Name: </h2> <input type= "text" th:field="*{breed}"><br>
+	<h2>Gender: </h2> <input type= "text" th:field="*{gender}"><br>
+	<h2>Class Specialty: </h2> <input type= "text" th:field="*{classSpecialty}"><br>
+	
+	
+<br>
+
+
+
+
+
+
+<!--	<select th:field="*{gender}">-->
+<!--		<option th:value="male" th:text="Male"></option>-->
+<!--		<option th:value="female" th:text="Female"></option>-->
+<!--	</select>-->
+
+
+<!--		private int dogId;-->
+<!--		private String dogName;-->
+<!--		private String ownerName;-->
+<!--		private String breed;-->
+<!--		private String gender;-->
+<!--		private String classSpecialty;-->
+
+
+
+
+		<!-- 		<p>
+                    <label class="group_label">    Role</label>
+                    <div>
+                    <label><input type="checkbox"  name="role" value="admin"/>  Admin</label><br>
+                    <label><input type="checkbox"  name="role2" value="member"/> Member</label><br>
+                    <label><input type="checkbox"  name="role3" value="guest"/>  Guest</label>
+                    </div>
+                </p>   -->
 
 
 			<br> <br> <input type="submit" value="Register Dog">
