@@ -28,7 +28,8 @@ public class BreedRepository {
 	
 			String query = " INSERT INTO breed_table"
 					+ " (breedName) VALUES (:breedName)";
-			
+
+			System.out.println("Breed Repository breed is" + breed.getBreedName());
 	
 			parameters.addValue("breedName", breed.getBreedName());
 	

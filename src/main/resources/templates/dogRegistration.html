@@ -24,13 +24,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	<h2>Dog Name: </h2> <input type= "text" th:field="*{dogName}"><br>
 	<h2>Owner Name: </h2> <input type= "text" th:field="*{ownerName}"><br>
 
-<!-- 	<select th:field= "*{breed}">
+    <select th:field= "*{breed}">
 	<option value="breed">Choose Breed</option>
 	Breed<br>
-	<option th:each="b: ${breedList}" th:value="${b.breedId}" th:text="${b.breedName}"></option>
-	</select> -->
+	<option th:each="b: ${breedList}" th:value="${b.breedName}" th:text="${b.breedName}"></option>
+<!-- 	<option th:each="b: ${breedList}" th:value="${b.breedId}" th:text="${b.breedName}"></option> -->
+	</select> 
 	
-	<h2>Breed Name: </h2> <input type= "text" th:field="*{breed}"><br>
+<!-- 	<h2>Breed Name: </h2> <input type= "text" th:field="*{breed}"><br> -->
 	<h2>Gender: </h2> <input type= "text" th:field="*{gender}"><br>
 	<h2>Class Specialty: </h2> <input type= "text" th:field="*{classSpecialty}"><br>
 	

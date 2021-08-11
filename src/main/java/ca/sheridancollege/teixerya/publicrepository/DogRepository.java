@@ -22,6 +22,7 @@ public class DogRepository {
                 + " (dogName, ownerName, breed, gender, classSpecialty)VALUES "
         		+"(:dogName, :ownerName, :breed, :gender, :classSpecialty)";
 
+        System.out.println("DogRepository breed is" + dog.getBreed());
 
         parameters.addValue("dogName", dog.getDogName());
         parameters.addValue("ownerName", dog.getOwnerName());
