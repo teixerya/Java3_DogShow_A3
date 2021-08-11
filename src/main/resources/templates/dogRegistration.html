@@ -23,17 +23,41 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 	<h2>Dog Name: </h2> <input type= "text" th:field="*{dogName}"><br>
 	<h2>Owner Name: </h2> <input type= "text" th:field="*{ownerName}"><br>
-
+	<div>
     <select th:field= "*{breed}">
 	<option value="breed">Choose Breed</option>
 	Breed<br>
 	<option th:each="b: ${breedList}" th:value="${b.breedName}" th:text="${b.breedName}"></option>
 <!-- 	<option th:each="b: ${breedList}" th:value="${b.breedId}" th:text="${b.breedName}"></option> -->
 	</select> 
+	</div>
+	<br>
 	
 <!-- 	<h2>Breed Name: </h2> <input type= "text" th:field="*{breed}"><br> -->
-	<h2>Gender: </h2> <input type= "text" th:field="*{gender}"><br>
-	<h2>Class Specialty: </h2> <input type= "text" th:field="*{classSpecialty}"><br>
+
+
+<!-- <input type="radio" th:field="*{carModel}" th:value="${model}" class="custom-control-input">
+
+<input type="radio" id="option2" name="option2" class="custom-control-input" value="2" th:field="*{option}"> -->
+<div>
+<br>
+<h2>Gender: </h2>
+    <label><input type="radio" th:field="*{gender}" name="genderValue" value="Male">Male</label>
+    <label><input type="radio" th:field="*{gender}" name="genderValue" value="Female" >Female</label>
+   
+</div>
+<br>
+<div>
+<br>
+<div>
+<h2>Specialty: </h2>
+    <label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Male Specialty">Male Specialty</label>
+    <label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Female Specialty" >Female Specialty</label>
+</div>
+</div>
+
+<!-- 	<h2>Gender: </h2> <input type= "text" th:field="*{gender}"><br> -->
+<!-- 	<h2>Class Specialty: </h2> <input type= "text" th:field="*{classSpecialty}"><br> -->
 	
 	
 <br>

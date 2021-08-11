@@ -23,6 +23,7 @@ public class BreedController {
 	public String goToAddBreedPage(Model model) {
 		model.addAttribute("breed", new Breed());
 		return "addBreedPage.html";
+		
 	}
 
 	@PostMapping("/addBreedLink")
@@ -31,9 +32,10 @@ public class BreedController {
 		System.out.println("\nSecurity Controller @PostMapping addBreedToController breed is "+ breed+ "\n"); 
 		
 		breedRepo.addBreedAtRepo(breed);
+		
 
 
-		return "addBreedPage.html";
+		return "redirect:/addBreedLink";
 	}
 	
 }

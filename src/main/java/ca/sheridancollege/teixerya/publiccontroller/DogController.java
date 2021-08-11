@@ -38,7 +38,7 @@ public class DogController {
 
 		dogRepo.addDogAtRepo(dog);
 
-		return "dogRegistration.html";
+		return "redirect:/addDogLink";
 	}
     
     
