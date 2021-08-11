@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ca.sheridancollege.teixerya.bean.Breed;
 import ca.sheridancollege.teixerya.bean.User;
-import ca.sheridancollege.teixerya.guestrepository.BreedRepository;
+import ca.sheridancollege.teixerya.publicrepository.BreedRepository;
 import ca.sheridancollege.teixerya.repository.SecurityRepository;
 
 @Controller

@@ -1,11 +1,6 @@
-package ca.sheridancollege.teixerya.guestrepository;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+package ca.sheridancollege.teixerya.publicrepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
