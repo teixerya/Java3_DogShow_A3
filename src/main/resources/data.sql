@@ -41,41 +41,104 @@ values (4, 3);
 
 
 insert into breed_table (breedName)
-values ('BREED_AMERICAN_BULLY');
+values ('American Bully');
  
 insert into breed_table (breedName)
-values ('BREED_GERMAN_SHEPERD');
+values ('German Shepard');
 
 insert into breed_table (breedName)
-values ('BREED_BORDERCOLLIE');
+values ('Border Collie');
 
 insert into breed_table (breedName)
-values ('BREED_GOLDEN_RETREIVER');
+values ('Golden Retriever');
 
 insert into breed_table (breedName)
-values ('BREED_FRENCH_BULLDOG');
+values ('French Bulldog');
 
 insert into breed_table (breedName)
-values ('BREED_AUSTRALIAN_SHEPPARD');
+values ('Australian Shepard');
 
 insert into breed_table (breedName)
-values ('BREED_LABRADOR');
+values ('Labrador');
 
 insert into breed_table (breedName)
-values ('BREED_DALMATIAN');
+values ('Dalmatian');
 
 insert into breed_table (breedName)
-values ('BREED_WEIMARANER');
+values ('Weimaraner');
 
 insert into breed_table (breedName)
-values ('BREED_ ROTTWEILER');
+values ('Rottweiler');
 
 
 INSERT INTO DOG_REGISTRY_TABLE (dogName, ownerName, breed, gender, classSpecialty) VALUES
-('Rocket', 'Owner Bobby',  'Husky',  'Male','Underdog'),
+('Rocket', 'Owner Bart',  'American Bully',  'Female','Female Specialty'),
+('Max', 'Owner Bart',  'German Shepard',  'Male','Male Class'),
+
+('Cooper', 'Owner Rick',  'Border Collie',  'Male','Male Class'),
+('Charly', 'Owner Rick',  'Golden Retriever',  'Female','Female Class'),
+
+('Ted', 'Owner Jess',  'French Bulldog',  'Male','Male Class'),
+('Bear', 'Owner Jess',  'Australian Shepard',  'Male','Male Class'),
+
+('Milo', 'Owner Marty',  'Labrador',  'Male','Male Class'),
+('Bentley', 'Owner Marty',  'Dalmatian',  'Female','Female Class'),
+
+('Olly', 'Owner Morty',  'Weimaraner',  'Male','Male Specialty'),
+('Boujee', 'Owner Wendy',  'Rottweiler',  'Female','Female Class'),
 
 
-('Ruby', 'Owner Bobby',  'American Bully',  'Female','Champion');
+('Leo', 'Owner Pablo Escobar',  'American Bully',  'Female','Female Specialty'),
+('Zeus', 'Owner Pablo Escobar',  'German Shepard',  'Male','Male Specialty'),
+
+('Duke', 'Owner Pablo Escobar',  'Border Collie',  'Male','Male Specialty'),
+('Diesel', 'Owner Pablo Escobar',  'Golden Retriever',  'Female','Female Specialty'),
+
+('Dudly', 'Owner Gustavo',  'French Bulldog',  'Male','Male Specialty'),
+('Ben', 'Owner Gustavo',  'Australian Shepard',  'Male','Male Specialty'),
+
+('Louie', 'Owner Gustavo',  'Labrador',  'Male','Male Specialty'),
+('Ruby', 'Owner Gustavo',  'Dalmatian',  'Female','Female Specialty'),
+
+('Jax', 'Owner Gustavo',  'Weimaraner',  'Male','Male Specialty'),
+('Kodak', 'Owner Gustavo',  'Rottweiler',  'Female','Female Specialty'),
+
+
+('Buster', 'Owner Tata',  'American Bully',  'Female','Female Specialty'),
+('Bubba', 'Owner Tata',  'German Shepard',  'Male','Male Class'),
+
+('Ziggy', 'Owner Tata',  'Border Collie',  'Male','Male Class'),
+('Zeze', 'Owner Tata',  'Golden Retriever',  'Female','Female Class'),
+
+('Drake', 'Owner Judy',  'French Bulldog',  'Male','Male Class'),
+('Bad Dog', 'Owner Judy',  'Australian Shepard',  'Male','Male Class'),
+
+('Winston', 'Owner Judy',  'Labrador',  'Male','Male Class'),
+('Come here boy', 'Owner Judy',  'Dalmatian',  'Female','Female Class'),
+
+('Oliver', 'Owner Camilla',  'Weimaraner',  'Male','Male Specialty'),
+('Marley', 'Owner Camilla',  'Rottweiler',  'Female','Female Class'),
+
+
+('Ranger', 'Owner Tata',  'American Bully',  'Female','Female Specialty'),
+('Dexter', 'Owner Tata',  'German Shepard',  'Male','Male Class'),
+
+('Thor', 'Owner Tata',  'Border Collie',  'Male','Male Class'),
+('Sub Zero', 'Owner Tata',  'Golden Retriever',  'Female','Female Class'),
+
+('Drake', 'Owner Judy',  'French Bulldog',  'Male','Male Class'),
+('Bad Dog', 'Owner Judy',  'Australian Shepard',  'Male','Male Class'),
+
+('Clark', 'Owner Judy',  'Labrador',  'Male','Male Class'),
+('Hold my beer', 'Owner Judy',  'Dalmatian',  'Female','Female Class'),
+
+('Caro', 'Owner Camilla',  'Weimaraner',  'Male','Male Specialty'),
+('Icecream', 'Owner Camilla',  'Rottweiler',  'Female','Female Class'),
+
+
+
+
+('Jupiter', 'Owner Sal',  'Rottweiler',  'Female','Male Specialty');
 
 
 

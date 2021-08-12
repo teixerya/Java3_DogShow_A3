@@ -47,13 +47,16 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
    
 </div>
 <br>
+
 <div>
 <br>
-<div>
 <h2>Specialty: </h2>
-    <label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Male Specialty">Male Specialty</label>
+	<label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Male Class">Male Class</label>
+	<label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Male Specialty">Male Specialty</label>
+
+	<label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Female Class" >Female Class</label>
     <label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Female Specialty" >Female Specialty</label>
-</div>
+
 </div>
 
 <!-- 	<h2>Gender: </h2> <input type= "text" th:field="*{gender}"><br> -->
