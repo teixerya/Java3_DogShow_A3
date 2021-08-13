@@ -15,7 +15,7 @@ insert into sec_role (roleName)
 values ('ROLE_ADMIN');
  
 insert into sec_role (roleName)
-values ('ROLE_MEMBER');
+values ('ROLE_Owner');
 
 insert into sec_role (roleName)
 values ('ROLE_GUEST');

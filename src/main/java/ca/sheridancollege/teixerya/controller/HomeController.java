@@ -57,14 +57,14 @@ public class HomeController {
 
 	}
 	
-	@GetMapping("/admin") public String goToUserPage() { 
+	@GetMapping("/adminView") public String goToUserPage() {
 		return "redirect:/viewContact"; } 
 	
-	@GetMapping("/member") 
+	@GetMapping("/ownerView")
 	public String goToPicklePage() { 
 	return "redirect:/viewContact"; } 
 	
-	@GetMapping("/guest")
+	@GetMapping("/guestView")
 	public String goToEmployeePage() { 
 		return "redirect:/viewContact"; } 
 	

@@ -31,10 +31,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		//Define what URL are restricted to specific roles
 		//We Restrict URL not HTML Pages
-		.antMatchers("/admin").hasRole("ADMIN")   
-		.antMatchers("/member").hasRole("MEMBER")  
+		.antMatchers("/adminView").hasRole("ADMIN")
+		.antMatchers("/ownerView").hasRole("OWNER")
+		.antMatchers("/guestView").hasRole("GUEST")
+
+		.antMatchers("/edit/**").hasRole("ADMIN")
+		.antMatchers("/delete/**").hasRole("ADMIN")
+
 		.antMatchers("/guest").hasRole("GUEST")  
-		
+
+
 		.antMatchers(HttpMethod.GET,"/register").permitAll()
 		.antMatchers(HttpMethod.POST,"/register").permitAll()
 		
