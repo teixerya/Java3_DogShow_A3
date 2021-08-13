@@ -60,7 +60,31 @@ public class DogRepository {
         return dogs;
     }
 
+    public Dog getDogById(int dogId) {
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        String query = "SELECT * FROM DOG_REGISTRY_TABLE WHERE dogId=:dogId";
+        parameters.addValue("dogId", dogId);
+        ArrayList<Dog> dogs = new ArrayList<Dog>();
+        List<Map<String, Object>> rows = jdbc.queryForList(query, parameters);
 
+        for (Map<String, Object> row : rows) {
+            Dog dogList = new Dog();
+
+            dogList.setDogId((int) row.get("dogId"));
+            dogList.setDogName((String) row.get("dogName"));
+            dogList.setOwnerName((String) row.get("ownerName"));
+            dogList.setBreed((String) row.get("breed"));
+            dogList.setGender((String) row.get("gender"));
+            dogList.setClassSpecialty((String) row.get("classSpecialty"));
+            dogs.add(dogList);
+
+        }
+        if (dogs.isEmpty()) {
+            return null;
+        } else {
+            return dogs.get(0);
+        }
+    }
 
 
 }
