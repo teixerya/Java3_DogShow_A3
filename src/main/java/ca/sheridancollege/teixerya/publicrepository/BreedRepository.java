@@ -45,12 +45,12 @@ public class BreedRepository {
 			ArrayList<Breed> breeds = new ArrayList<Breed>();
 			
 		for(Map<String, Object> row : rows) {
-			Breed d = new Breed();
-			d.setBreedId((int)row.get("breedId"));
-			d.setBreedName((String)row.get("breedName"));
+			Breed repoBreedList = new Breed();
+			repoBreedList.setBreedId((int)row.get("breedId"));
+			repoBreedList.setBreedName((String)row.get("breedName"));
 	
 	
-			breeds.add(d);
+			breeds.add(repoBreedList);
 		}
 		return breeds;
 		}

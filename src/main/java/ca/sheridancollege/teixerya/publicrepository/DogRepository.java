@@ -8,6 +8,11 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class DogRepository {
 
@@ -33,6 +38,29 @@ public class DogRepository {
         jdbc.update(query, parameters);
 
     }
+
+    public ArrayList<Dog> getDogs() {
+        String query = "SELECT * FROM DOG_REGISTRY_TABLE";
+        ArrayList<Dog> dogs = new ArrayList<Dog>();
+        List<Map<String, Object>> rows = jdbc.queryForList(query, new HashMap<String, Object>());
+
+        for (Map<String, Object> row : rows) {
+            Dog dogList = new Dog();
+
+            dogList.setDogId((int) row.get("dogId"));
+            dogList.setDogName((String) row.get("dogName"));
+            dogList.setOwnerName((String) row.get("ownerName"));
+            dogList.setBreed((String) row.get("breed"));
+            dogList.setGender((String) row.get("gender"));
+            dogList.setClassSpecialty((String) row.get("classSpecialty"));
+            dogs.add(dogList);
+
+        }
+
+        return dogs;
+    }
+
+
 
 
 }

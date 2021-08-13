@@ -42,7 +42,7 @@ breedName VARCHAR(30)
 
 CREATE TABLE DOG_REGISTRY_TABLE (
 
-      id INT NOT NULL Primary Key AUTO_INCREMENT,
+      dogId INT NOT NULL Primary Key AUTO_INCREMENT,
       dogName VARCHAR(25),
       ownerName VARCHAR(50),
       breed VARCHAR(25),
