@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-public class DogController {
+public class DogControllerPublic {
 
     @Autowired
     @Lazy
@@ -40,5 +40,7 @@ public class DogController {
 
 		return "redirect:/addDogLink";
 	}
+
+
 
 }
