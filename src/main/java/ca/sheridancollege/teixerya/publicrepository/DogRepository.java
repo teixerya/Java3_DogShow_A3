@@ -86,8 +86,23 @@ public class DogRepository {
         }
     }
 
+    public void editDog(Dog dog) {
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        String query = "UPDATE DOG_REGISTRY_TABLE set dogName=:name, userName=:user, breed=:breed, "
+                + "gender=:gender, classSpecialty=:classSpecialty, role=:role WHERE dogId=:id";
+        parameters.addValue("id", dog.getDogId());
+        parameters.addValue("name", dog.getDogName());
 
-}
+        parameters.addValue("user", dog.getOwnerName());
+        parameters.addValue("breed", dog.getBreed());
+
+        parameters.addValue("gender", dog.getGender());
+        parameters.addValue("classSpecialty", dog.getClassSpecialty());
+        jdbc.update(query, parameters);
+
+    }
+
+}//Closing brace
 
 
 
