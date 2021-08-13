@@ -102,6 +102,16 @@ public class DogRepository {
 
     }
 
+    public void deleteDog(int dogId){
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        String query = "DELETE FROM DOG_REGISTRY_TABLE WHERE dogId=:dogId";
+        parameters.addValue("dogId", dogId);
+        jdbc.update(query, parameters);
+
+    }
+
+
+
 }//Closing brace
 
 
