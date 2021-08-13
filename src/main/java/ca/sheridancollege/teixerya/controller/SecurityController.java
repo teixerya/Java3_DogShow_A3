@@ -54,7 +54,9 @@ public class SecurityController {
 		if(secRepo.findUserAccount(username) != null) {
 			//The username already exists.
 		} else {
+
 			secRepo.addUser(username,password);
+
 			User user = secRepo.findUserAccount(username);
 			
 

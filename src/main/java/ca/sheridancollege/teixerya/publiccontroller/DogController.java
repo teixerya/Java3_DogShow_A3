@@ -25,11 +25,11 @@ public class DogController {
     @Lazy
     private BreedRepository breedRepo;
 
-    
+
 	@GetMapping("/addDogLink")
 	public String goToAddDog(Model model) {
-		model.addAttribute("dog", new Dog());
-		model.addAttribute("breedList", breedRepo.getBreed());
+		model.addAttribute("dog", new Dog());// "dog" is added to the html, new Dog() too
+		model.addAttribute("breedList", breedRepo.getBreed());//"breedlist" added to html and breed is retrieved with get method
 		return "dogRegistration.html";
 	}
 
@@ -40,26 +40,5 @@ public class DogController {
 
 		return "redirect:/addDogLink";
 	}
-    
-    
-    
-//    @GetMapping("/addDogLink")
-//    public String goToAddBreedPage(Model model) {
-//        model.addAttribute("dog", new Dog());
-//        model.addAttribute("breedList", breedRepo.getBreed());
-//        return "dogRegistration.html";
-//    }
-//
-//    @PostMapping("/addDogLink")
-//    public String addBreedToDatabase(@ModelAttribute Dog dog, Model model) {
-//
-//        System.out.println("\nSecurity Controller @PostMapping addDogToController breed is "+ dog+ "\n");
-//
-//        dogRepo.addDogAtRepo(dog);
-//
-//
-////		return "redirect:/addBreed";
-//        return "dogRegistration.html";
-//    }
 
 }
