@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Dogs</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/main.css}" href="../static/css/main.css"
+          rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/footer.css}" href="../static/css/footer.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{../js/footer.js}" src="../static/js/footer.js"></script>
+
+</head>
+<body>
+<h1>View Dogs</h1>
+
+<table border ="1">
+
+    <tr>
+
+        <th>Dog Name</th>
+        <th>Owner Name</th>
+        <th>Breed</th>
+        <th>Gender</th>
+        <th>Class Specialty</th>
+        <th colspan = "2">Modify Dogs</th>
+
+
+    </tr>
+
+
+
+    <tr th:each="dog: ${dogs}">
+        <td th:text="${dog.dogName}"></td>
+        <td th:text="${dog.ownerName}"></td>
+        <td th:text="${dog.breed}"></td>
+        <td th:text="${dog.gender}"></td>
+        <td th:text="${dog.classSpecialty}"></td>
+
+
+
+        <td> <a th:href="@{/edit/{dogId} (dogId=${dog.dogId} ) }">Edit</a></td>
+        <td> <a th:href="@{/delete/{dogId} (dogId=${dog.dogId} ) }">Delete</a></td>
+
+    </tr>
+
+</table>
+
+<br>
+
+Go to <a th:href="@{/addDogLink}">Add New Dog</a><br>
+
+Go to <a th:href="@{/showList}">Show dog list link not made</a><br>
+
+Go to <a th:href="@{/}">Root</a>
+
+<img th:src="@{/img/summer.jpg}" width="450" height="250"/>
+
+
+</body>
+
+</html>
