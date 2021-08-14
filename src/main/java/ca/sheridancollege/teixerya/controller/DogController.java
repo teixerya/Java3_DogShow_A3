@@ -31,7 +31,9 @@ public class DogController {
     private BreedRepository breedRepo;
 
     @GetMapping("/viewDogs")
-    public String goToDogPage(Model model, Authentication authentication, Dog dog){
+    public String goToDogPage(Model model, Authentication authentication){
+
+        System.out.println("\n\n /viewDogs " );
 
         ArrayList<Dog> dogs = new ArrayList<Dog>();
         String name=authentication.getName();
@@ -41,7 +43,7 @@ public class DogController {
             roles.add(ga.getAuthority());
         }
 
-        System.out.println("\n@GetMapping /viewDogs " + roles);
+        System.out.println("\nroles /viewDogs " + roles);
 
 //        if(roles.contains("ROLE_OWNER")) {
 ////            dogs.addAll((dogRepo.getDogAdminContacts()));
@@ -55,7 +57,9 @@ public class DogController {
 //            dogs = dogRepo.getDogs();
 //        }
         System.out.println("\n@GetMapping /viewDogs dogs before" + dogs);
-        dogs= dogRepo.getDogs();
+        dogs.addAll((dogRepo.getDogs()));
+
+//        dogs= dogRepo.getDogs();
         System.out.println("\n@GetMapping /viewDogs dogs after .getDogs()" + dogs);
 
         model.addAttribute("dogs", dogs);
@@ -64,23 +68,7 @@ public class DogController {
 
     }
 
-    @GetMapping("/editDog/{dogId}")
-    public String editDog(@PathVariable int dogId, Model model) {
-        Dog dog = dogRepo.getDogById(dogId);
-        model.addAttribute("dog", dog);
-        model.addAttribute("breedList", breedRepo.getBreed());
 
-        System.out.println("\n@GetMapping /editDog/{dogId} value dog" + dog);
-
-        return "editDog.html";
-    }
-
-    @PostMapping("/editDog")
-    public String editDog(@ModelAttribute Dog dog) {
-        dogRepo.editDog(dog);
-        System.out.println("\n@PostMapping /editDog value dog" + dog);
-        return "redirect:/viewDogs";
-    }
 
     @GetMapping("/deleteDog/{dogId}")
     public String deleteDog(@PathVariable int dogId, Model model) {

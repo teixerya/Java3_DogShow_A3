@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET,"/addDogLink").permitAll()
 		.antMatchers(HttpMethod.POST,"/addDogLink").permitAll()
 		
-		.antMatchers(HttpMethod.GET,"/editDog/**").permitAll()
+		.antMatchers(HttpMethod.GET,"/editDog/{dogId}").permitAll()
 		.antMatchers(HttpMethod.POST,"/editDog").permitAll()
 		
 		.antMatchers(HttpMethod.GET,"/viewDogs").permitAll()

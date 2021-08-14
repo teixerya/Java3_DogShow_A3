@@ -18,7 +18,7 @@
 <form th:action= "@{/editDog}" th:object="${dog}" method="post" >
 
 
-
+    <h2>Dog Id Hidden </h2> <input type= "hidden" th:field="*{dogId}"><br>
 
     <h2>Dog Name: </h2> <input type= "text" th:field="*{dogName}"><br>
     <h2>Owner Name: </h2> <input type= "text" th:field="*{ownerName}"><br>

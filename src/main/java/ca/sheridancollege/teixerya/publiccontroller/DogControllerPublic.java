@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -41,7 +42,25 @@ public class DogControllerPublic {
 		return "redirect:/addDogLink";
 	}
 
+    @GetMapping("/editDog/{dogId}")
+    public String editDog(@PathVariable int dogId, Model model) {
+        Dog dog = dogRepo.getDogById(dogId);
+        model.addAttribute("dog", dog);
+        model.addAttribute("breedList", breedRepo.getBreed());
 
+        System.out.println("\n/editDog/{dogId} value dog" + dog);
+        System.out.println("@GetMapping /editDog/{dogId} value dog" + dog + "\n");
+
+        return "editDog.html";
+    }
+
+    @PostMapping("/editDog")
+    public String editDogFromDataBase(@ModelAttribute Dog dog, Model model) {
+        dogRepo.editDog(dog);
+        System.out.println("\n/editDog value dog" + dog);
+        System.out.println("@PostMapping /editDog value dog" + dog + "\n");
+        return "redirect:/viewDogs";
+    }
 
 
 }

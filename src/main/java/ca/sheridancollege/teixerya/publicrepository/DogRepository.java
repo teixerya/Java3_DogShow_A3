@@ -90,9 +90,10 @@ public class DogRepository {
     }
 
     public void editDog(Dog dog) {
+
         MapSqlParameterSource parameters = new MapSqlParameterSource();
-        String query = "UPDATE DOG_REGISTRY_TABLE SET dogId=:dogId, dogName=:dogName," +
-                " ownerName=:ownerName, breed=:breed, "+
+
+        String query = "UPDATE DOG_REGISTRY_TABLE SET dogId=:dogId, dogName=:dogName, ownerName=:ownerName, breed=:breed, "+
                  "gender=:gender, classSpecialty=:classSpecialty " +
                 "WHERE dogId=:dogId";
         System.out.println("editDog at the Repo" + dog);
@@ -101,6 +102,7 @@ public class DogRepository {
 
         parameters.addValue("dogId", dog.getDogId());
         parameters.addValue("dogName", dog.getDogName());
+//        parameters.addValue("dogName", dog.getDogName());
 
         parameters.addValue("ownerName", dog.getOwnerName());
         parameters.addValue("breed", dog.getBreed());
@@ -108,6 +110,20 @@ public class DogRepository {
         parameters.addValue("gender", dog.getGender());
         parameters.addValue("classSpecialty", dog.getClassSpecialty());
 
+        System.out.println("\n Dog Repostiory get bean properties for mapping.\n");
+        System.out.println("dogId " + dog.getDogId());
+        System.out.println("dogName "+ dog.getDogName());
+//        parameters.addValue("dogName", dog.getDogName());
+
+        System.out.println("ownerName "+ dog.getOwnerName());
+        System.out.println("breed "+ dog.getBreed());
+
+        System.out.println("gender "+ dog.getGender());
+        System.out.println("classSpecialty "+ dog.getClassSpecialty());
+
+        System.out.println("\nEdit Dog query "+ query);
+        System.out.println("\nEdit Dog parameters "+ parameters);
+        
         jdbc.update(query, parameters);
 
     }
