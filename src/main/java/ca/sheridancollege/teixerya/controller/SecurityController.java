@@ -91,16 +91,16 @@ public class SecurityController {
 		return "redirect:/login";
 	}
 
-	@GetMapping("/admin") public String goToUserPage() {
-		return "redirect:/viewContact"; }
+	@GetMapping("/admin") public String goToAdminPage() {
+		return "redirect:/viewDogs"; }
 
 	@GetMapping("/owner")
-	public String goToPicklePage() {
-		return "redirect:/viewContact"; }
+	public String goToOwnerPage() {
+		return "redirect:/viewDogs"; }
 
 	@GetMapping("/guest")
-	public String goToEmployeePage() {
-		return "redirect:/viewContact"; }
+	public String goToGuestPage() {
+		return "redirect:/viewDogs"; }
 
 }
 

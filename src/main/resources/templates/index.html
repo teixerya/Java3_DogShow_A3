@@ -29,6 +29,8 @@ Go to <a th:href="@{/guest}">Guest Login</a>
 	
 	Go to <a th:href="@{/addDogLink}">Dog Registration Page</a><br><br>
 
+Go to <a th:href="@{/viewDogs}">view Dogs Page</a><br><br>
+
 <br><br>
 <div sec:authorize="isAuthenticated()">
 	User's Name: <span sec:authentication="name"></span>
