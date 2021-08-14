@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org">
+<html xmlns:th = "http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>View Dogs</title>
@@ -32,7 +32,7 @@
 
 
 
-    <tr th:each="dog: ${dogs}">
+        <tr th:each="dog: ${dogs}">
         <td th:text="${dog.dogName}"></td>
         <td th:text="${dog.ownerName}"></td>
         <td th:text="${dog.breed}"></td>
@@ -41,8 +41,8 @@
 
 
 
-        <td> <a th:href="@{/edit/{dogId} (dogId=${dog.dogId} ) }">Edit</a></td>
-        <td> <a th:href="@{/delete/{dogId} (dogId=${dog.dogId} ) }">Delete</a></td>
+        <td> <a th:href="@{/editDog/{dogId} (dogId=${dog.dogId} ) }">Edit</a></td>
+        <td> <a th:href="@{/deleteDog/{dogId} (dogId=${dog.dogId} ) }">Delete</a></td>
 
     </tr>
 
@@ -55,6 +55,24 @@ Go to <a th:href="@{/addDogLink}">Add New Dog</a><br>
 Go to <a th:href="@{/showList}">Show dog list link not made</a><br>
 
 Go to <a th:href="@{/}">Root</a>
+
+<br><br>
+<div sec:authorize="isAuthenticated()">
+    User's Name: <span sec:authentication="name"></span>
+    <br>
+    Roles: <span sec:authentication="principal.authorities"></span>
+    <br>
+    <form method="post" th:action="@{/logout}">
+        <input type="submit" value="Log out">
+    </form>
+
+</div>
+
+
+<br><br>
+<div th:if="${param.logout}">
+    You have logged out
+</div>
 
 <img th:src="@{/img/summer.jpg}" width="450" height="250"/>
 

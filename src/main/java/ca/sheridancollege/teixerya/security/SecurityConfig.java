@@ -31,12 +31,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		//Define what URL are restricted to specific roles
 		//We Restrict URL not HTML Pages
-		.antMatchers("/adminView").hasRole("ADMIN")
-		.antMatchers("/ownerView").hasRole("OWNER")
-		.antMatchers("/guestView").hasRole("GUEST")
+		.antMatchers("/admin").hasRole("ADMIN")
+		.antMatchers("/owner").hasRole("OWNER")
+		.antMatchers("/guest").hasRole("GUEST")
 
 		.antMatchers("/edit/**").hasRole("ADMIN")
+		.antMatchers("/edit").hasRole("ADMIN")
 		.antMatchers("/delete/**").hasRole("ADMIN")
+		
+		.antMatchers("/editDog/**").hasRole("ADMIN")
+		.antMatchers("/editDog").hasRole("ADMIN")
+		.antMatchers("/deleteDog/**").hasRole("ADMIN")
 
 		.antMatchers("/guest").hasRole("GUEST")  
 
@@ -49,6 +54,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		.antMatchers(HttpMethod.GET,"/addDogLink").permitAll()
 		.antMatchers(HttpMethod.POST,"/addDogLink").permitAll()
+		
+		.antMatchers(HttpMethod.GET,"/editDog/**").permitAll()
+		.antMatchers(HttpMethod.POST,"/editDog").permitAll()
 		
 		.antMatchers(HttpMethod.GET,"/viewDogs").permitAll()
 		.antMatchers(HttpMethod.POST,"/viewDogs").permitAll()

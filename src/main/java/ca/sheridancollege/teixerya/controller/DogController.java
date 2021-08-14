@@ -2,6 +2,7 @@ package ca.sheridancollege.teixerya.controller;
 
 import ca.sheridancollege.teixerya.bean.Contact;
 import ca.sheridancollege.teixerya.bean.Dog;
+import ca.sheridancollege.teixerya.publicrepository.BreedRepository;
 import ca.sheridancollege.teixerya.publicrepository.DogRepository;
 import ca.sheridancollege.teixerya.repository.ContactRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,50 +26,66 @@ public class DogController {
     @Lazy
     private DogRepository dogRepo;
 
+    @Autowired
+    @Lazy
+    private BreedRepository breedRepo;
+
     @GetMapping("/viewDogs")
-    public String goToDogPage(Model model, Authentication authentication){
+    public String goToDogPage(Model model, Authentication authentication, Dog dog){
 
         ArrayList<Dog> dogs = new ArrayList<Dog>();
-
+        String name=authentication.getName();
         List<String> roles = new ArrayList<String>();
 
         for(GrantedAuthority ga: authentication.getAuthorities()) {
             roles.add(ga.getAuthority());
         }
 
-        if(roles.contains("ROLE_OWNER")) {
+        System.out.println("\n@GetMapping /viewDogs " + roles);
 
-            String name = authentication.getName();
-            dogs= dogRepo.getOwnerDogs(name);
-
-        }
-
-        if(roles.contains("ROLE_ADMIN")) {
-            dogs = dogRepo.getDogs();
-        }
+//        if(roles.contains("ROLE_OWNER")) {
+////            dogs.addAll((dogRepo.getDogAdminContacts()));
+////            String oName = authentication.getName();
+//            dogs= dogRepo.getDogs();
+//            System.out.println("\n@GetMapping /viewDogs if ROLE_OWNER" + dogs);
+//
+//        }
+//
+//        if(roles.contains("ROLE_ADMIN")) {
+//            dogs = dogRepo.getDogs();
+//        }
+        System.out.println("\n@GetMapping /viewDogs dogs before" + dogs);
+        dogs= dogRepo.getDogs();
+        System.out.println("\n@GetMapping /viewDogs dogs after .getDogs()" + dogs);
 
         model.addAttribute("dogs", dogs);
         return "viewDogs.html";
+//        return "redirect:/viewDogs";
 
     }
 
-    @GetMapping("/edit/{dogId}")
+    @GetMapping("/editDog/{dogId}")
     public String editDog(@PathVariable int dogId, Model model) {
         Dog dog = dogRepo.getDogById(dogId);
         model.addAttribute("dog", dog);
+        model.addAttribute("breedList", breedRepo.getBreed());
+
+        System.out.println("\n@GetMapping /editDog/{dogId} value dog" + dog);
+
         return "editDog.html";
     }
 
     @PostMapping("/editDog")
-    public String updateDog(@ModelAttribute Dog dog) {
+    public String editDog(@ModelAttribute Dog dog) {
         dogRepo.editDog(dog);
-        return "viewDogs.html";
+        System.out.println("\n@PostMapping /editDog value dog" + dog);
+        return "redirect:/viewDogs";
     }
 
-    @GetMapping("/delete/{dogId}")
+    @GetMapping("/deleteDog/{dogId}")
     public String deleteDog(@PathVariable int dogId, Model model) {
         dogRepo.deleteDog(dogId);
-        return "redirect:/viewContact";
+        return "redirect:/viewDogs";
     }
 
 

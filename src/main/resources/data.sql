@@ -12,13 +12,13 @@ values ('Jessica', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu
 
 
 insert into sec_role (roleName)
-values ('ADMIN');
+values ('ROLE_ADMIN');
  
 insert into sec_role (roleName)
-values ('OWNER');
+values ('ROLE_OWNER');
 
 insert into sec_role (roleName)
-values ('GUEST');
+values ('ROLE_GUEST');
  
 insert into user_role (userId, roleId)
 values (1, 1);

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Dog</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/main.css}" href="../static/css/main.css"
+          rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/footer.css}" href="../static/css/footer.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{../js/footer.js}" src="../static/js/footer.js"></script>
+
+</head>
+<body>
+<h1>Edit Dog</h1>
+<form th:action= "@{/editDog}" th:object="${dog}" method="post" >
+
+
+
+
+    <h2>Dog Name: </h2> <input type= "text" th:field="*{dogName}"><br>
+    <h2>Owner Name: </h2> <input type= "text" th:field="*{ownerName}"><br>
+    <div>
+        <select th:field= "*{breed}">
+            <option value="breed">Choose Breed</option>
+            Breed<br>
+            <option th:each="b: ${breedList}" th:value="${b.breedName}" th:text="${b.breedName}"></option>
+
+        </select>
+    </div>
+    <br>
+
+
+    <div>
+        <br>
+        <h2>Gender: </h2>
+        <label><input type="radio" th:field="*{gender}" name="genderValue" value="Male">Male</label>
+        <label><input type="radio" th:field="*{gender}" name="genderValue" value="Female" >Female</label>
+
+    </div>
+    <br>
+
+    <div>
+        <br>
+        <h2>Specialty: </h2>
+        <label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Class">Class</label>
+        <label><input type="radio" th:field="*{classSpecialty}" name="classSValue" value="Specialty">Specialty</label>
+
+    </div>
+
+
+    <br>
+
+
+    <br> <br> <input type="submit" value="Edit Dog">
+</form>
+
+<br>
+<br>
+
+Go to <a th:href="@{/viewDogs}">View Dogs</a>
+
+<img th:src="@{/img/summer.jpg}" width="450" height="250"/>
+
+</body>
+
+</html>

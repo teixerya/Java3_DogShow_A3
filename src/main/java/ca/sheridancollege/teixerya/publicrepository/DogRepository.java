@@ -40,9 +40,12 @@ public class DogRepository {
     }
 
     public ArrayList<Dog> getDogs() {
+
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
         String query = "SELECT * FROM DOG_REGISTRY_TABLE";
+
+        List<Map<String, Object>> rows = jdbc.queryForList(query, parameters);
         ArrayList<Dog> dogs = new ArrayList<Dog>();
-        List<Map<String, Object>> rows = jdbc.queryForList(query, new HashMap<String, Object>());
 
         for (Map<String, Object> row : rows) {
             Dog dogList = new Dog();
@@ -53,8 +56,8 @@ public class DogRepository {
             dogList.setBreed((String) row.get("breed"));
             dogList.setGender((String) row.get("gender"));
             dogList.setClassSpecialty((String) row.get("classSpecialty"));
-            dogs.add(dogList);
 
+            dogs.add(dogList);
         }
 
         return dogs;
@@ -88,16 +91,23 @@ public class DogRepository {
 
     public void editDog(Dog dog) {
         MapSqlParameterSource parameters = new MapSqlParameterSource();
-        String query = "UPDATE DOG_REGISTRY_TABLE set dogName=:name, userName=:user, breed=:breed, "
-                + "gender=:gender, classSpecialty=:classSpecialty, role=:role WHERE dogId=:id";
-        parameters.addValue("id", dog.getDogId());
-        parameters.addValue("name", dog.getDogName());
+        String query = "UPDATE DOG_REGISTRY_TABLE SET dogId=:dogId, dogName=:dogName," +
+                " ownerName=:ownerName, breed=:breed, "+
+                 "gender=:gender, classSpecialty=:classSpecialty " +
+                "WHERE dogId=:dogId";
+        System.out.println("editDog at the Repo" + dog);
 
-        parameters.addValue("user", dog.getOwnerName());
+
+
+        parameters.addValue("dogId", dog.getDogId());
+        parameters.addValue("dogName", dog.getDogName());
+
+        parameters.addValue("ownerName", dog.getOwnerName());
         parameters.addValue("breed", dog.getBreed());
 
         parameters.addValue("gender", dog.getGender());
         parameters.addValue("classSpecialty", dog.getClassSpecialty());
+
         jdbc.update(query, parameters);
 
     }
@@ -133,6 +143,36 @@ public class DogRepository {
 
         return dogs;
     }
+
+//    public ArrayList<Dog> getDogAdminContacts(){ //Connection code here
+//
+//        MapSqlParameterSource parameters = new MapSqlParameterSource();
+//        String query = "SELECT * FROM contact_info WHERE role = 'ROLE_ADMIN'";
+////		parameters.addValue("role", role);
+//
+//        List<Map<String, Object>> rows = jdbc.queryForList(query, parameters);
+//        ArrayList<Dog> dogs = new ArrayList<Dog>();
+//
+//        for(Map<String, Object> row : rows) {
+//            Dog d = new Dog();
+//            d.setDogId((int)row.get("dogId"));
+//            d.setDogName((String)row.get("DogName"));
+//            d.setOwnerName((String)row.get("OwnerName"));
+//            d.setBreed((String)row.get("breed"));
+//            d.setGender((String)row.get("gender"));
+//            d.setClassSpecialty((String)row.get("classSpecialty"));
+//
+//            dogs.add(d);
+//        }
+//        return dogs;
+//    }
+
+
+
+
+
+
+
 
 //    public ArrayList<Dog> getShowList() {
 //        String query = "select count (breed)", breed, count (gender = 'Male'), "
