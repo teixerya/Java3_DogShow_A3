@@ -45,23 +45,45 @@ public class SecurityController {
 	@PostMapping("/register")
 	public String registerNewUser(@RequestParam String username,
 								  @RequestParam String password,
-								  @RequestParam String[] user_sec) {
+								  @RequestParam Optional<String> role,
+								  @RequestParam Optional<String> role2,
+								  @RequestParam Optional<String> role3
 
-		if (secRepo.findUserAccount(username) != null) {
+	) {
+
+		if(secRepo.findUserAccount(username) != null) {
 			//The username already exists.
 		} else {
-
-			secRepo.addUser(username, password);
+			secRepo.addUser(username,password);
 			User user = secRepo.findUserAccount(username);
 
 
-			for (int i = 0; i < user_sec.length; i++) {
-				String[] storeSecUserTemp = user_sec;
-				if (storeSecUserTemp[i].contains("admin")) {
-					secRepo.addRole(user.getUserId(), 1);
-				} else {
-					secRepo.addRole(user.getUserId(), 2);
-				}
+			String opt = role.toString();
+			String opt2 = role2.toString();
+			String opt3 = role3.toString();
+
+			if (opt.equals("Optional[admin]")) {
+				System.out.println("\nUser ID" + user.getUserId());
+				System.out.println("opt sout "+ opt);
+				System.out.println("printed role if statement ");
+
+				secRepo.addRole(user.getUserId(), 1);//User
+			}
+
+			if (opt2.equals("Optional[member]")) {
+				System.out.println("\nUser ID" + user.getUserId());
+				System.out.println("opt2 sout "+ opt2);
+				System.out.println("printed role2 if statement");
+
+				secRepo.addRole(user.getUserId(), 2);//User
+			}
+
+			if (opt3.equals("Optional[guest]")) {
+				System.out.println("\nUser ID" + user.getUserId());
+				System.out.println("opt3 sout "+ opt3);
+				System.out.println("printed role3 if statement");
+
+				secRepo.addRole(user.getUserId(), 3);//User
 			}
 
 		}
@@ -69,7 +91,16 @@ public class SecurityController {
 		return "redirect:/login";
 	}
 
-	
+	@GetMapping("/admin") public String goToUserPage() {
+		return "redirect:/viewContact"; }
+
+	@GetMapping("/owner")
+	public String goToPicklePage() {
+		return "redirect:/viewContact"; }
+
+	@GetMapping("/guest")
+	public String goToEmployeePage() {
+		return "redirect:/viewContact"; }
 
 }
 
