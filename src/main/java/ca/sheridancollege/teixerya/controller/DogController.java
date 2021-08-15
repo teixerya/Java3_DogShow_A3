@@ -45,26 +45,16 @@ public class DogController {
 
         System.out.println("\nroles /viewDogs " + roles);
 
-//        if(roles.contains("ROLE_OWNER")) {
-////            dogs.addAll((dogRepo.getDogAdminContacts()));
-////            String oName = authentication.getName();
-//            dogs= dogRepo.getDogs();
-//            System.out.println("\n@GetMapping /viewDogs if ROLE_OWNER" + dogs);
-//
-//        }
-//
-//        if(roles.contains("ROLE_ADMIN")) {
-//            dogs = dogRepo.getDogs();
-//        }
+
         System.out.println("\n@GetMapping /viewDogs dogs before" + dogs);
         dogs.addAll((dogRepo.getDogs()));
 
-//        dogs= dogRepo.getDogs();
+
         System.out.println("\n@GetMapping /viewDogs dogs after .getDogs()" + dogs);
 
         model.addAttribute("dogs", dogs);
         return "viewDogs.html";
-//        return "redirect:/viewDogs";
+
 
     }
 

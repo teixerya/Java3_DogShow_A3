@@ -53,7 +53,7 @@ public class SecurityRepository {
 	return roles;
 	}		
 
-	//required for Registration
+
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
@@ -67,7 +67,7 @@ public class SecurityRepository {
 		
 	}
 	
-	//required for Registration
+
 	public void addRole(long userId, long roleId) {
 		MapSqlParameterSource parameters = new MapSqlParameterSource();
 		String query ="insert into user_role (userId, roleId) values ( :uid, :rid)";
@@ -79,8 +79,6 @@ public class SecurityRepository {
 		jdbc.update(query, parameters);
 		
 	}
-	
 
-	
 }
 

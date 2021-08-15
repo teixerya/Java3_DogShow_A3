@@ -56,14 +56,7 @@ public class ContactRepo {
 		return contacts;
 	}
 	
-//	public ArrayList<Contact> getContact2(){
-//		MapSqlParameterSource parameters = new MapSqlParameterSource();
-//		String query = "SELECT * FROM contact_info ";
-//
-//		ArrayList<Contact> contacts = (ArrayList<Contact>)
-//				jdbc.query(query, new BeanPropertyRowMapper<Contact>(Contact.class));
-//		return contacts;
-//	}
+
 	
 	public Contact getContactById(int id){
 		MapSqlParameterSource parameters = new MapSqlParameterSource();
@@ -92,42 +85,7 @@ public class ContactRepo {
 		}
 	}
 	
-	
-	
-	
-	
-//	//Will return a list of strings which are the role names assigned to a specific userId
-//	public List<String> getAdminContact(long userId){
-//		MapSqlParameterSource parameters = new MapSqlParameterSource();
-//		String query = "SELECT user_role.userId, sec_role.roleName FROM " 
-//				+ "user_role, sec_role WHERE user_role.roleid= sec_role.roleId"
-//				+ " and userId=:id";
-//		parameters.addValue("id", userId);
-//		
-//		List<Map<String, Object>> rows = jdbc.queryForList(query, parameters);
-//		ArrayList<String> roles = new ArrayList<String>();
-//		
-//	for(Map<String, Object> row : rows) {
-//		String role = (String)row.get("roleName");
-//		roles.add(role);
-//	}
-//	return roles;
-//	}		
-	
-	
-	
-	
-//	if(roles.contains("ROLE_ADMIN")) {
-//		contacts.addAll((da.getAdminContacts()));
-//	}
-//	
-//	if(roles.contains("ROLE_MEMBER")) {
-//		contacts.addAll((da.getMembersContacts()));
-//	}
-//	
-//	if(roles.contains("ROLE_GUEST")) {
-//		contacts.addAll((da.getGuestContacts()));
-//	}
+
 	
 	
 	public void editContact(Contact contact) {
@@ -226,13 +184,7 @@ public class ContactRepo {
 			return contacts;
 		}
 
-//public ArrayList<Contact> getMembersContacts(){ //Connection code here 
-//        String Query = "SELECT * FROM contacts where role = 'member'";
-//        //More code here
-//
-//public ArrayList<Contact> getAdminContacts(){ //Connection code here 
-//        String Query = "SELECT * FROM contacts where role = 'admin'";
-//        //More code here
+
 	
 	
 }

@@ -102,7 +102,7 @@ public class DogRepository {
 
         parameters.addValue("dogId", dog.getDogId());
         parameters.addValue("dogName", dog.getDogName());
-//        parameters.addValue("dogName", dog.getDogName());
+
 
         parameters.addValue("ownerName", dog.getOwnerName());
         parameters.addValue("breed", dog.getBreed());
@@ -113,7 +113,7 @@ public class DogRepository {
         System.out.println("\n Dog Repostiory get bean properties for mapping.\n");
         System.out.println("dogId " + dog.getDogId());
         System.out.println("dogName "+ dog.getDogName());
-//        parameters.addValue("dogName", dog.getDogName());
+
 
         System.out.println("ownerName "+ dog.getOwnerName());
         System.out.println("breed "+ dog.getBreed());
@@ -160,60 +160,9 @@ public class DogRepository {
         return dogs;
     }
 
-//    public ArrayList<Dog> getDogAdminContacts(){ //Connection code here
-//
-//        MapSqlParameterSource parameters = new MapSqlParameterSource();
-//        String query = "SELECT * FROM contact_info WHERE role = 'ROLE_ADMIN'";
-////		parameters.addValue("role", role);
-//
-//        List<Map<String, Object>> rows = jdbc.queryForList(query, parameters);
-//        ArrayList<Dog> dogs = new ArrayList<Dog>();
-//
-//        for(Map<String, Object> row : rows) {
-//            Dog d = new Dog();
-//            d.setDogId((int)row.get("dogId"));
-//            d.setDogName((String)row.get("DogName"));
-//            d.setOwnerName((String)row.get("OwnerName"));
-//            d.setBreed((String)row.get("breed"));
-//            d.setGender((String)row.get("gender"));
-//            d.setClassSpecialty((String)row.get("classSpecialty"));
-//
-//            dogs.add(d);
-//        }
-//        return dogs;
-//    }
 
 
-
-
-
-
-
-
-//    public ArrayList<Dog> getShowList() {
-//        String query = "select count (breed)", breed, count (gender = 'Male'), "
-//                + "count(gender='Female'), count(classSpecialty='Class'), "
-//                + "count(classSpecialty='Specialty') "
-//                + "from DOG_REGISTRY_TABLE group by breed, gender, classSpecialty";
-//
-//        ArrayList<Dog> dogs = new ArrayList<Dog>();
-//        List<Map<String, Object>> rows = jdbc.queryForList(query, new HashMap<String, Object>());
-//
-//        for (Map<String, Object> row : rows) {
-//            Dog dogList = new Dog();
-//
-//            dogList.setBreed((String) row.get("breed"));
-//            dogList.setGender((String) row.get("gender"));
-//            dogList.setClassSpecialty((String) row.get("classSpecialty"));
-//            dogs.add(dogList);
-//
-//        }
-//
-//        return dogs;
-//    }
-
-
-}//Closing brace
+}
 
 
 

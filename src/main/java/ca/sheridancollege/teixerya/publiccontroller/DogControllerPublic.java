@@ -29,8 +29,8 @@ public class DogControllerPublic {
 
 	@GetMapping("/addDogLink")
 	public String goToAddDog(Model model) {
-		model.addAttribute("dog", new Dog());// "dog" is added to the html, new Dog() too
-		model.addAttribute("breedList", breedRepo.getBreed());//"breedlist" added to html and breed is retrieved with get method
+		model.addAttribute("dog", new Dog());
+		model.addAttribute("breedList", breedRepo.getBreed());
 		return "dogRegistration.html";
 	}
 

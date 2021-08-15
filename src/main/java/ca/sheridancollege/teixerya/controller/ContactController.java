@@ -31,13 +31,7 @@ public class ContactController {
 
 		return "redirect:/newContact";
 	}
-	
-//	@GetMapping("/viewContact")
-//	public String viewContact(Model model) {
-//
-//		model.addAttribute("contacts", da.getContacts());
-//		return "viewContact.html";
-//	}
+
 
 	@GetMapping("/edit/{id}")
 	public String editContact(@PathVariable int id, Model model) {
