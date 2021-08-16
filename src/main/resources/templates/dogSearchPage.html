@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/main.css}" href="../static/css/main.css"
+          rel="stylesheet" type="text/css"/>
+    <link th:href="@{../css/footer.css}" href="../static/css/footer.css"
+          rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{../js/footer.js}" src="../static/js/footer.js"></script>
+
+</head>
+<body>
+<h2>Dog Registration Page</h2>
+<form th:action="@{/addDogSearch}" th:object="${dog}" method="post" >
+
+
+
+
+    <h2>Dog Name: </h2> <input type= "text" th:field="*{dogName}"><br>
+    <h2>Owner Name: </h2> <input type= "text" th:field="*{ownerName}"><br>
+    <div>
+        <select th:field= "*{breed}">
+            <option value="breed">Choose Breed</option>
+            Breed<br>
+            <option th:each="b: ${breedList}" th:value="${b.breedName}" th:text="${b.breedName}"></option>
+
+        </select>
+    </div>
+    <br>
+
+
+
+    <br>
+
+
+    <br> <br> <input type="submit" value="Register Dog">
+</form>
+<br><br> Go to<a th:href="@{/}"> Root</a>
+<!-- 		<img th:src="@{/img/registered_user.jpg}" width="550" height="350"/> -->
+</body>
+</html>

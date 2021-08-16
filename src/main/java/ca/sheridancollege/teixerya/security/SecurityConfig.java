@@ -43,17 +43,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/editDog").hasRole("ADMIN")
 		.antMatchers("/deleteDog/**").hasRole("ADMIN")
 
+		.antMatchers("/addDogLink/**").hasRole("ADMIN")
+
 		.antMatchers("/guest").hasRole("GUEST")  
 
 
 		.antMatchers(HttpMethod.GET,"/register").permitAll()
 		.antMatchers(HttpMethod.POST,"/register").permitAll()
+
 		
 		.antMatchers(HttpMethod.GET,"/addBreedLink").permitAll()
-		.antMatchers(HttpMethod.POST,"/addBreedLink").permitAll()
+//		.antMatchers(HttpMethod.POST,"/addBreedLink").permitAll()
+				.antMatchers(HttpMethod.POST,"/addBreedLink").hasRole("ADMIN")
 
-		.antMatchers(HttpMethod.GET,"/addDogLink").permitAll()
-		.antMatchers(HttpMethod.POST,"/addDogLink").permitAll()
+//		.antMatchers(HttpMethod.GET,"/addDogLink").permitAll()
+//		.antMatchers(HttpMethod.POST,"/addDogLink").permitAll()
 		
 		.antMatchers(HttpMethod.GET,"/editDog/{dogId}").permitAll()
 		.antMatchers(HttpMethod.POST,"/editDog").permitAll()

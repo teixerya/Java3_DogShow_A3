@@ -160,6 +160,29 @@ public class DogRepository {
         return dogs;
     }
 
+    public ArrayList<Dog> getBreedOfDogs(String breed) {
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        String query = "SELECT * FROM DOG_REGISTRY_TABLE WHERE breed=:breed";
+        parameters.addValue("breed", breed);
+
+        ArrayList<Dog> dogs = new ArrayList<Dog>();
+        List<Map<String, Object>> rows = jdbc.queryForList(query, parameters);
+
+        for (Map<String, Object> row : rows) {
+            Dog dogList = new Dog();
+
+            dogList.setDogId((int) row.get("dogId"));
+            dogList.setDogName((String) row.get("dogName"));
+            dogList.setOwnerName((String) row.get("ownerName"));
+            dogList.setBreed((String) row.get("breed"));
+            dogList.setGender((String) row.get("gender"));
+            dogList.setClassSpecialty((String) row.get("classSpecialty"));
+            dogs.add(dogList);
+
+        }
+
+        return dogs;
+    }
 
 
 }
