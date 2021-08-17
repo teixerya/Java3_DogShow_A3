@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+div{
+color:Black;
+}
+h1{
+color:green;
+}
+h2{
+color:blue;
+}
+
+</style>
+
+</head>
+<body>
+<h1>Thymeleaf Email from Ryan Teixeira</h1>
+<h2 th:text="'Hello ' + ${name}">Standard Greeting</h2>
+
+
+
+
+<table border ="1">
+
+    <tr>
+
+        <th>Dog Name</th>
+        <th>Owner Name</th>
+        <th>Breed</th>
+        <th>Gender</th>
+        <th>Class Specialty</th>
+
+
+
+    </tr>
+
+
+    <tr th:each="dog: ${dogs}">
+        <td th:text="${dog.dogName}"></td>
+        <td th:text="${dog.ownerName}"></td>
+        <td th:text="${dog.breed}"></td>
+        <td th:text="${dog.gender}"></td>
+        <td th:text="${dog.classSpecialty}"></td>
+
+
+    </tr>
+
+</table>
+<br>
+<div th:text="${footer}">Some Footer</div>
+
+</body>
+</html>
