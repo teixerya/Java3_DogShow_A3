@@ -68,6 +68,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET,"/emailLink").permitAll()
 				.antMatchers(HttpMethod.POST,"/emailLink").permitAll()
 
+		.antMatchers("/restdogs").permitAll()
+		.antMatchers("/restdogs/{dogId}").permitAll()
+		.antMatchers("/restdogs/**").permitAll()
+		
 		.antMatchers("/publiccontroller/**").permitAll()
 		.antMatchers("/publicrepository/**").permitAll()
 

@@ -40,6 +40,10 @@ breedId   INT NOT NULL Primary Key AUTO_INCREMENT,
 breedName VARCHAR(30)
 ) ;
 
+
+
+
+
 CREATE TABLE DOG_REGISTRY_TABLE (
 
       dogId INT NOT NULL Primary Key AUTO_INCREMENT,
@@ -51,6 +55,8 @@ CREATE TABLE DOG_REGISTRY_TABLE (
 
   
   
+      
+      
 CREATE TABLE contact_info (
 id INT NOT NULL Primary Key AUTO_INCREMENT,
 name VARCHAR(25), 
