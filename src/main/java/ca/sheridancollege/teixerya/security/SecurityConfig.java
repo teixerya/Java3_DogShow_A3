@@ -33,7 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//We Restrict URL not HTML Pages
 		.antMatchers("/admin").hasRole("ADMIN")
 		.antMatchers("/owner").hasRole("OWNER")
-		.antMatchers("/guest").hasRole("GUEST")
+		.antMatchers("/owner").hasRole("GUEST")
+
 
 		.antMatchers("/edit/**").hasRole("ADMIN")
 		.antMatchers("/edit").hasRole("ADMIN")
@@ -44,8 +45,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/deleteDog/**").hasRole("ADMIN")
 
 		.antMatchers("/addDogLink/**").hasRole("ADMIN")
+		.antMatchers("/addDogLink/**").hasRole("OWNER")
 
-		.antMatchers("/guest").hasRole("GUEST")  
+		.antMatchers("/guest").hasRole("GUEST")
+
+		.antMatchers("/addBreedLink").hasRole("OWNER")
 
 
 		.antMatchers(HttpMethod.GET,"/register").permitAll()
